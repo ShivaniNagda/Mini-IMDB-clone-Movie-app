@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Movie App - OMDB</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu text-right">
+                <div class="bars">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="dropdown-list nav-menu">
+                    <ul class="no-list-style">
+                        <li><a href="#">Home</a></li>
+                        <li id="movie-link"><a href="#movie">Movie</a></li>
+                        <li><a href="#comedy" >Comedy</a></li>
+                        <li><a href="#series">Series</a></li>
+                        <li class="btn">
+                            <button href="#" onclick="showFavorites()">
+                                <i class="fa-solid fa-heart"></i> Favourite <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Horizontal Menu for Desktop View -->
+            <ul class="no-list-style horizontal-list text-center nav-menu">
+                <li class="btn">
+                    <button onclick="showFavorites()">
+                        <i class="fa-solid fa-heart"></i> Favourite <i class="fa-solid fa-heart"></i>
+                    </button>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li id="movie-link"><a href="#movie">Movie</a></li>
+                <li><a href="#comedy">Comedy</a></li>
+                <li><a href="#series">Series</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Section -->
+    <section>
+        <div class="search-container">
+            <div class="search-element">
+                <div class="search-data">
+                    <h3>Search Movie:</h3>
+                    <input onkeyup="findMovies()" type="text" class="form-control" id="movie-search-box" placeholder="Search Movie ...">
+                    <div class="search-list" id="search-list">
+                        <!-- Search results will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Favorite Movie Section -->
+        <div id="fav-container">
+            <div id="fav-res-container">
+                <div class="fav-res-grid" id="fav-res-grid">
+                    <h2 class="fav-head">Trending Now - Watch (Movie, Comedy, Series)</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie List Section -->
+        <div id="container">
+            <div id="res-container">
+                <div class="res-grid" id="res-grid">
+                    <!-- Movie details will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Row Section -->
+    <div id="headrow">
+        <div class="row">
+            <h2 id="row_title" class="row_title"></h2>
+            <div class="row_posters">
+                <div class="movie-info-all">
+                    <!-- Movie posters will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">
+            <i class="fa fa-copyright"></i>
+            <span>All rights reserved - Shivani Nagda</span>
+        </p>
+    </footer>
+
+    <!-- Script Section -->
+    <script src="movie.js"></script>
+    <script>
+        // Scroll Event Listener to Toggle Active Class on Nav
+        window.addEventListener("scroll", function () {
+            var nav = document.querySelector(".navbar");
+            nav.classList.toggle("active", window.scrollY > 0);
+        });
+    </script>
+</body>
+
+</html>
